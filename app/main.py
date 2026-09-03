@@ -71,8 +71,8 @@ def truncate_to_three_lines(pdf, text: str, max_width: float) -> str:
 
 
 app = FastAPI(
-    title="Bettapak barcodes",
-    description="Bettapak barcodes",
+    title="Barcode Generator",
+    description="Barcodes Generator",
 )
 
 
@@ -95,25 +95,7 @@ def is_valid_gs1_check_digit(number_str: str) -> bool:
 
 @app.get("/favicon.ico", include_in_schema=False)
 async def favicon():
-    png_base64 = (
-        "iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAD"
-        "Y0lEQVR4nO2Wy2sTURTGf9OkbZqmbZom9UFrX62itgXfK6I7wY3gXpW6E3ThVvAvUFwI7lyK6K64"
-        "F9SFC1dKERSLgjoqtS9S+2gS06SZZ9w0SbyZOZlM0mTeD35wMsnM3O9899w795w70NBgZfAGbMAd"
-        "sAG3gL8gD9wBrfEAsA7XgWvAfWBNoG+gDdwAtuAn4AewAeeA08AbSfwVsAasADtAtwDPADfRWeuE"
-        "3g7gK+ALwFvAJ9AKOAY6m9TfD/RIdQ9wCbgFfAZm6m7BBeAk6Mcl/gVYA8qS+OskPhXmE+AJ6BPo"
-        "iFpXAXeZ8XpAb36mAtwFpgR+RGLXgAnpZ0as7wNtgR6WwF3ASeCOwO+A9W6pPwp6vUofvWb6eS6x"
-        "e6SfoL9L/BngjECfB7pX9HqFPl7SbyS2P9B7pH6XwM+S/p3A78pY6N/RAnASeCGxPZkfA4GukX4s"
-        "6b8S+g+B70vGmgF6bOAtCgHWA+uN6E+jD3+R+H0W7Bkwv6LXSXof6CegV67AbeKNoR69RvpJ0utv"
-        "gCbpv5W6l6DfrfQeU6tX6b2mPhOtx9QbyfP/F61O0h+I1pW6C1qn+FzRskQLpC6S8W8Cq3HlT0Ur"
-        "S+p+A6vHle8SrbykPpD6S6Il6AulbifSj0b6fUq970idb6Wv7+9Ieum670Ovh6nXN9D3pX6XpNsM"
-        "pW9U6vUqfX/pXwDugD0C3wXWw67A9fArfT0iXpYw/6m7Fq6vYv6e+hGgS+rPpf+p6A0qfWwBvXId"
-        "XqHXSfofB9bXUfcitS9Bv0vpPZg/E+vPZcyfpfUpwPzSffTIdWbAnK9vBujxkn4v8asbY6F/R+v9"
-        "fS/6XwN6pDq3b/7V9NOn18v08Un6/tI/D/wM9CrV2wF8S7Xv8D6vMvP9Uv0z8L3/f7YAXKWa68As"
-        "MIda4D661mXUnwZOC/O3wBvAFfRE0Z06H0FfFN2p0yPUXwX8HnqiqE79A6DHiu7Up+iJolL9A6DH"
-        "iv7UfwVvAb2I9w/U0fWhX4S3An8C7gNfAT0B2E76R+itYDrpZ6FvSOyrwK9I/wB/A99VbWpwsC7Y"
-        "CvwL6L3A/Vab9C/KAh9Bw5AHeA0ahjzAS9Aw5AFeA2M/g98wNFC34Bv6B3gIGgZvwG3wGfAGfE/6"
-        "m97/A5108pbyCg61AAAAAElFTkSuQmCC"
-    )
+    png_base64 = "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR4nGP4////fwAJ+wP9KobjigAAAABJRU5ErkJggg=="
     icon_bytes = base64.b64decode(png_base64)
     return Response(content=icon_bytes, media_type="image/png")
 
