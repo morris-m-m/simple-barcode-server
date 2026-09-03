@@ -95,7 +95,7 @@ def is_valid_gs1_check_digit(number_str: str) -> bool:
 
 @app.get("/favicon.ico", include_in_schema=False)
 async def favicon():
-    png_base64 = "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR4nGP4////fwAJ+wP9KobjigAAAABJRU5ErkJggg=="
+    png_base64 = "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
     icon_bytes = base64.b64decode(png_base64)
     return Response(content=icon_bytes, media_type="image/png")
 
