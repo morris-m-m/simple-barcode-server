@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barcode Generator</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 500px; margin: 50px auto; padding: 20px; line-height: 1.6; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; font-weight: bold; margin-bottom: 5px; }
+        input[type="text"] { width: 100%; padding: 8px; box-sizing: border-box; font-size: 16px; }
+        button { background-color: #007BFF; color: white; border: none; padding: 10px 15px; cursor: pointer; font-size: 16px; width: 100%; }
+        button:hover { background-color: #0056b3; }
+        .error { color: #D8000C; background-color: #FFBABA; padding: 10px; border-radius: 4px; margin-bottom: 15px; font-weight: bold; }
+        .result { border: 2px solid #28a745; padding: 20px; text-align: center; margin-top: 20px; border-radius: 4px; }
+        .result img { max-width: 100%; height: auto; margin-top: 10px; }
+    </style>
+</head>
+<body>
+
+    <h2>Barcode Generator</h2>
+
+    <!-- Display Validation Errors -->
+    {% if error %}
+        <div class="error">
+            {{ error }}
+        </div>
+    {% endif %}
+
+    <form method="POST" action="/" target="_blank">
+        <div class="form-group">
+            <label for="barcode_input">Barcode Digits (8, 12, 13, or 14 digits):</label>
+            <input type="text" id="barcode_input" name="barcode_input" value="{{ barcode_input or '' }}" placeholder="e.g. 9312345678907" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="description">Item Description:</label>
+            <input type="text" id="description" name="description" value="{{ description or '' }}" placeholder="e.g. Tomato Soup Can" required>
+        </div>
+        
+        <button type="submit">Generate Barcode PDF</button>
+    </form>
+
+    <!-- Display Success State and Barcode Image -->
+    {% if success %}
+        <div class="result">
+            <h3>Generation Successful</h3>
+            <p><strong>Description:</strong> {{ description }}</p>
+            <p><strong>Value:</strong> {{ barcode }}</p>
+            <img src="{{ image_url }}" alt="Generated Barcode">
+        </div>
+    {% endif %}
+
+</body>
+</html>
