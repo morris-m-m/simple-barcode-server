@@ -12,6 +12,13 @@
  - Generates a print-ready A4 PDF in memory
  - Runs as a non-root user inside Docker
 
+ ## Limitations
+
+- Not intended to be exposed directly to the public internet
+- Provides no authentication or access control of any form
+- Deploy behind authentication and a reverse proxy if remote access is required
+
+
  ## Quick Start with Docker Compose
 
  1. Clone the repository and change into its directory.
